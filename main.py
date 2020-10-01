@@ -1,12 +1,27 @@
 from faker import Faker
+import phonenumbers 
+
+
+from phonenumbers import carrier
+from phonenumbers.phonenumberutil import number_type
+
+number = "+49 176 1234 5678"
+carrier._is_mobile(number_type(phonenumbers.parse(number))) 
+
 fake = Faker('pl_PL')
+
+
 
 #fake.profile()
 fake_profil = fake.profile()
-name = str.split(fake_profil["name"])[0]
-surname = str.split(fake_profil["name"])[1]
-phone = str.split(fake_profil["ssn"])[0]
-email = str.split(fake_profil["mail"])[0]
+f_name = str.split(fake_profil["name"])[0]
+f_surname = str.split(fake_profil["name"])[1]
+f_phone = fake.phone_number()
+f_email = str.split(fake_profil["mail"])[0]
+f_job = str.split(fake_profil["job"])
+f_company = fake.bs()
+f_businesphone = fake.phone_number()
+
 
 class BaseContact:
     def __init__(self, name, surname, phone, email):
@@ -14,12 +29,26 @@ class BaseContact:
         self.surname = surname
         self.phone = phone
         self.email = email
+    def __str__(self):
+        return f'{self.name} {self.surname} {self.phone} {self.email}'
 
-class BusinessContact(BaseContact):
-    def __init__(self,  )
-        self.job = job
-        self.company = company
+
+#class BusinessContact(BaseContact):
+#    def __init__(self, name, job, company):
+#        super().__init__(name)
+#        self.job = job
+#        self.company = company
+#    def revertphone(phone):
+#        print(phone)
+
+ #   def __str__(self):
+ #       return f'{self.name} {self.company}'
+
         
+kolega = BaseContact(name = f_name, surname = f_surname, phone = f_phone, email = f_email)
+#wspolpracownik = BusinessContact(name = "Adam", company = f_email, job = "Szec")
+#print(wspolpracownik)
+print(kolega)
 
 
 
