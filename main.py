@@ -29,26 +29,29 @@ class BaseContact:
         self.surname = surname
         self.phone = phone
         self.email = email
+    def contact(self):
+        print(f'Wybieram numer {self.phone} i dzwonie do {self.name} {self.surname}')
     def __str__(self):
         return f'{self.name} {self.surname} {self.phone} {self.email}'
 
 
-#class BusinessContact(BaseContact):
-#    def __init__(self, name, job, company):
-#        super().__init__(name)
-#        self.job = job
-#        self.company = company
-#    def revertphone(phone):
-#        print(phone)
+class BusinessContact(BaseContact):
+    def __init__(self, name, surname, phone, email, job, company, businesphone):
+        super().__init__(name, surname, phone, email)
+        self.job = job
+        self.company = company
+        self.businesphone = businesphone
 
- #   def __str__(self):
- #       return f'{self.name} {self.company}'
+    def __str__(self):
+        return f'{self.name} {self.surname} {self.phone} {self.email} {self.job} {self.company} {self.businesphone}'
 
-        
+print("################")      
 kolega = BaseContact(name = f_name, surname = f_surname, phone = f_phone, email = f_email)
-#wspolpracownik = BusinessContact(name = "Adam", company = f_email, job = "Szec")
-#print(wspolpracownik)
+kolega.contact()
 print(kolega)
+print("################")
+wspolpracownik = BusinessContact(name = f_name, surname = f_surname, phone = f_phone, email = f_email, job = f_job, company = f_company, businesphone = f_businesphone)
+print(wspolpracownik)
 
 
 
