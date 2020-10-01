@@ -1,35 +1,53 @@
 from faker import Faker
-faker = Faker('pl_PL')
+fake = Faker('pl_PL')
+
+#fake.profile()
+fake_profil = fake.profile()
+name = str.split(fake_profil["name"])[0]
+surname = str.split(fake_profil["name"])[1]
+phone = str.split(fake_profil["ssn"])[0]
+email = str.split(fake_profil["mail"])[0]
+
+class BaseContact:
+    def __init__(self, name, surname, phone, email):
+        self.name = name
+        self.surname = surname
+        self.phone = phone
+        self.email = email
+
+class BusinessContact(BaseContact):
+    def __init__(self,  )
+        self.job = job
+        self.company = company
+        
 
 
-class Osoba:
 
-    def __init__(self, fn, ln, e):
-        self.fn, self.ln, self.e = fn, ln, e
+#stanowisko, nazwa firmy, telefon służbowy.
+##BaseContact(name, surname, phone, email)
+ #   def __str__(self):
+ #       return 'sadaf'
 
-    def __str__(self):
-        return 'sadaf'
-
-    def napisz(osoba):
-        print(f'{osoba.e}')
+ #   def napisz(osoba):
+ #       print(f'{osoba.e}')
 
 
-class Kobieta(Osoba):
+#class BusinessContact(BaseContact):
 
-    def __init__(self, kolor, *args):
-        self.k = kolor
-        super().__init__(*args)
+#    def __init__(self, kolor, *args):
+#        self.k = kolor
+#        super().__init__(*args)
 
-    def makijaż(self):
-        print(f'szminka w kolorze {self.k}')
+ #   def makijaż(self):
+ #       print(f'szminka w kolorze {self.k}')
 
 
-osoby = [
-    Kobieta(faker.color(), faker.first_name(), faker.last_name(), faker.email()) for _ in range(10)
-]
+#osoby = [
+#    BusinessContact(faker.color(), faker.first_name(), faker.last_name(), faker.email()) for _ in range(10)
+#]
 
-for osoba in osoby:
-    osoba.makijaż()
+#for osoba in osoby:
+#    osoba.makijaż()
 
 
 #class BaseContact:
