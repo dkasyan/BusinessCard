@@ -29,7 +29,6 @@ def greeting():
         print("Wyslano GET")
         return render_template("greeting.html")
     elif request.method == 'POST':
-
         print("Wysłano POST")
         print("We received POST")
         print(request.form)
