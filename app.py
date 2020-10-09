@@ -28,12 +28,12 @@ def greeting():
     if request.method == 'GET':
         print("Wyslano GET")
         return render_template("greeting.html")
-    elif request.form == 'POST':
+    elif request.method == 'POST':
 
         print("Wysłano POST")
         print("We received POST")
         print(request.form)
-        return redirect("/")
+        return redirect("/greeting")
     print('ITS NOT GET NOR POST')
 
        # print(request.greeting)
