@@ -34,6 +34,8 @@ def greeting():
         print("We received POST")
         print(request.form)
         return redirect("/")
+    print('ITS NOT GET NOR POST')
+
        # print(request.greeting)
         #return redirect("/greeting")
  #   return text
