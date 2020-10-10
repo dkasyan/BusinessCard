@@ -39,7 +39,13 @@ def warehouse():
     items = ["screwdriver", "hammer", "saw"]
     return render_template("warehouse.html", items=items)
 
-warehouse
+
+@app.route("/mypage/me", methods=['GET'])
+def mypageme():
+    items = [""]
+#/mypage/me – informacje o mnie
+#/mypage/contact – informacje kontaktowe
+#/mypage/contact (POST) – zapis formularza
  #   print('ITS NOT GET NOR POST')
  
 
