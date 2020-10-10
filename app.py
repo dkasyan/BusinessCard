@@ -41,8 +41,13 @@ def warehouse():
 
 
 @app.route("/mypage/me", methods=['GET'])
+def mypage():
+    return render_template("mypage.html")
+
+@app.route("/mypage/contact", methods=['GET'])
 def mypageme():
-    items = [""]
+    return render_template("mypageme.html")
+
 #/mypage/me – informacje o mnie
 #/mypage/contact – informacje kontaktowe
 #/mypage/contact (POST) – zapis formularza
