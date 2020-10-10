@@ -33,6 +33,13 @@ def greeting():
         print("We received POST")
         print(request.form)
         return redirect("/greeting")
+
+@app.route("/warehouse")
+def warehouse():
+    items = ["screwdriver", "hammer", "saw"]
+    return render_template("warehouse.html", items=items)
+
+warehouse
  #   print('ITS NOT GET NOR POST')
  
 
