@@ -1,7 +1,5 @@
 from faker import Faker
 import phonenumbers 
-
-
 from phonenumbers import carrier
 from phonenumbers.phonenumberutil import number_type
 
@@ -9,7 +7,6 @@ number = "+49 176 1234 5678"
 carrier._is_mobile(number_type(phonenumbers.parse(number))) 
 
 fake = Faker('pl_PL')
-
 
 
 #fake.profile()
@@ -56,7 +53,7 @@ class BusinessContact(BaseContact):
 #Losowa wizytówka
 
 types = True
-amount = 29999999
+amount = 1
 def create_contacts (types, amount):
     for i in range(amount):
         fakek_profil = fake.profile()
@@ -73,8 +70,6 @@ def create_contacts (types, amount):
         else:
             business = BusinessContact(name = fk_name, surname = fk_surname, phone = fk_phone, email = fk_email, job = fk_job, company = fk_company, businesphone = fk_businesphone)
             business.contact()
-            
-
 
 create_contacts(True,amount)
 
