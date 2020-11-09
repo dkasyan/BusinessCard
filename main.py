@@ -2,6 +2,10 @@ from faker import Faker
 import phonenumbers 
 from phonenumbers import carrier
 from phonenumbers.phonenumberutil import number_type
+import logging
+
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile.log")
 
 number = "+49 176 1234 5678"
 carrier._is_mobile(number_type(phonenumbers.parse(number))) 
@@ -34,18 +38,20 @@ class BaseContact:
         a = len(self.name)
         b = len(self.surname)
         c = a + b 
-        print(f'Długość imienia i nazwiska to {c}')
+        logging.debug(f'Długość imienia i nazwiska to {c}')
+        return(c)
 
 
 class BusinessContact(BaseContact):
-    def __init__(self, name, surname, phone, email, job, company, businesphone):
-        super().__init__(name, surname, phone, email)
+    def __init__(self, job, company, businesphone, *args, **kwargs):
+        super().__init__( *args, **kwargs)
         self.job = job
         self.company = company
         self.businesphone = businesphone
 
     def contact(self):
         print(f'Wybieram numer {self.businesphone} i dzwonie do {self.name} {self.surname}')
+        logging.debug("Chose number")
 
     def __str__(self):
         return f'{self.name} {self.surname} {self.phone} {self.email} {self.job} {self.company} {self.businesphone}'
