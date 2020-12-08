@@ -12,22 +12,6 @@ carrier._is_mobile(number_type(phonenumbers.parse(number)))
 
 fake = Faker('pl_PL')
 
-#def label_length(funct):
-#    result = funct(self)
-#    print(result)
-
-
-        
- 
- #       logging.debug(result)
-
-
-#        a = len(name)
-#        b = len(surname)
-#        c = a + b 
-#    logging.debug(f'Długość imienia i nazwiska to {c}')
-#    return(c)
-
 class BaseContact:
     def __init__(self, name, surname, phone, email):
         self.name = name
@@ -39,7 +23,6 @@ class BaseContact:
         print(f'Wybieram numer {self.phone} i dzwonie do {self.name} {self.surname}')
     def __str__(self):
         return f'{self.name} {self.surname} {self.phone} {self.email}'
-        
 
 class BaseContact:
 
@@ -74,10 +57,7 @@ class BusinessContact(BaseContact):
 
     def contact(self):
         print(f'Wybieram numer {self.businesphone} i dzwonie do {self.name} {self.surname}')
-        # logging.debug(
-        #     "Busines Contact contact method run:"  f'Wybieram numer {self.businesphone} i dzwonie do {self.name} {self.surname}')
 
-    #    @label_length
     def __str__(self):
         return f'{self.name} {self.surname} {self.phone} {self.email} {self.job} {self.company} {self.businesphone}'
 
