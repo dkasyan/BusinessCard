@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    {% endblock %}
+</head>
+
+<body class="body">
+<main class="card">
+    <img class="card_Photo" src="{{ url_for('static',filename='image.jpg') }}" alt="Damian Photo">
+    <div>
+        <article class="card_Class">
+            <h1 class="card_Name"><strong>Damian Kasyan</strong></h1>
+            <span class="card_Title">Web creator</span>
+
+            <div id="content">{% block content %}{% endblock %}</div>
+            <a href="#" class></a>
+
+        </article>
+    </div>
+</main>
+
+</body>
+
+</html>
