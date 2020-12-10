@@ -3,10 +3,6 @@ from flask import render_template
 
 app = Flask(__name__)
 
-if __name__ == '__main__':
-    app.run()
-
-
 @app.route("/mypage")
 def warehouse():
     return render_template("mypage.html")
@@ -25,3 +21,6 @@ def contact():
         print("We received POST")
         print(request.form)
         return redirect("/mypage/contact")
+
+if __name__ == '__main__':
+    app.run()
