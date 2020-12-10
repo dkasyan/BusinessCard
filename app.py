@@ -1,66 +1,27 @@
-from flask import Flask
+from flask import Flask, request, redirect
 from flask import render_template
-from flask import request
-from flask import redirect
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    my_name = "Johns"
-    return f'Hello, {my_name}!'
+if __name__ == '__main__':
+    app.run()
 
-@app.route('/home')    
-def home():
-    my_name = "Damian"
-    return f'Hello, {my_name}!'
 
-@app.route('/blog/<id>')
-def blog(id):
-    return f"This is blog entry #{id}"
-
-@app.route('/message', methods=['POST'])
-def post_message():
-    return "OK"
-
-@app.route('/greeting', methods=['GET', 'POST'])
-def greeting():
-    if request.method == 'GET':
-        print("Wyslano GET")
-        return render_template("greeting.html")
-    elif request.method == 'POST':
-        print("Wysłano POST")
-        print("We received POST")
-        print(request.form)
-        return redirect("/greeting")
-
-@app.route("/warehouse")
+@app.route("/mypage")
 def warehouse():
-    items = ["screwdriver", "hammer", "saw"]
-    return render_template("warehouse.html", items=items)
-
-
-@app.route("/mypage/me", methods=['GET'])
-def mypage():
     return render_template("mypage.html")
 
-@app.route("/mypage/contact", methods=['GET'])
-def mypageme():
-    return render_template("mypageme.html")
 
-#/mypage/me – informacje o mnie
-#/mypage/contact – informacje kontaktowe
-#/mypage/contact (POST) – zapis formularza
- #   print('ITS NOT GET NOR POST')
- 
-
-       # print(request.greeting)
-        #return redirect("/greeting")
- #   return text
+@app.route("/mypage/me")
+def me():
+    return render_template("me.html")
 
 
-
-#@app.route('/message', methods=['POST'])
-#def message():
-#    print(request.form)
-#    return redirect("/message")
+@app.route("/mypage/contact", methods=['GET', 'POST'])
+def contact():
+    if request.method == 'GET':
+        return render_template("contact.html")
+    elif request.method == 'POST':
+        print("We received POST")
+        print(request.form)
+        return redirect("/mypage/contact")
